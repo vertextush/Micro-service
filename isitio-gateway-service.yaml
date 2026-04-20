@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: main-gateway
+  namespace: back
+spec:
+  selector:
+    istio: ingressgateway # Default Istio gateway pod ko select karega
+  servers:
+  - port:
+      number: 80
+      name: http
+      protocol: HTTP
+    hosts:
+    - "*" # Aap yahan apna domain bhi daal sakte hain
