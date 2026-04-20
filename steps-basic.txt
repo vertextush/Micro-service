@@ -1,0 +1,18 @@
+ingress contoller installation 
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+
+----------------------------------------------------------------------------------------------------------------------------
+
+istio installtion 
+# Istio download and install
+curl -L https://istio.io/downloadIstio | sh -
+cd istio-*
+export PATH=$PWD/bin:$PATH
+
+# Demo profile install (is-me ingress gateway default milta hai)
+istioctl install --set profile=demo -y
+
+
+# Apne namespace ko label karein
+kubectl label namespace <your-namespace> istio-injection=enabled
